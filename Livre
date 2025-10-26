@@ -1,0 +1,15 @@
+public class Livre extends Media {
+    private String Auteur;
+    private int nbPages;
+
+    public Livre(String Auteur, int anneePublication,String title,int nbPages) {
+        super (title,anneePublication);
+        this.Auteur = Auteur;
+        this.nbPages = nbPages;
+
+    }
+    @Override
+    public String getDescription() {
+        return "Livre de"+Auteur+","+nbPages+" pages";
+    }
+}
