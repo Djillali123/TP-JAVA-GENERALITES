@@ -1,0 +1,79 @@
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.List;
+import java.util.ArrayList;
+
+
+
+
+public class Main {
+
+    // Méthode générique d’affichage
+    public static <T> void afficher(List<T> liste) {
+        for( T t : liste ) {
+            System.out.println( t );
+        }
+    }
+
+    public static void main(String[] args) {
+
+
+
+        CD cd1 = new CD("t",2005,"y",2);
+        CD cd2 = new CD("t",2005,"y",2);
+        CD cd3 = new CD("t",2005,"y",2);
+        CD cd4 = new CD("t",2005,"y",3);
+        CD cd5 = new CD("t",2015,"yy",2);
+
+        List<CD> cdlist = new ArrayList<>();
+        cdlist.add(cd1);
+        cdlist.add(cd2);
+        cdlist.add(cd3);
+        cdlist.add(cd4);
+        cdlist.add(cd5);
+        afficher(cdlist);
+        var test = filtrer(cdlist, m->m.getanneePublication()>2010);
+
+        afficher(test);
+
+    }
+
+     {
+        // Creation de la liste membre
+        List <Membre> ListMembres = new ArrayList<>();
+
+        Membre M1 = new Membre("Michael",2019);
+        ListMembres.add(M1);
+        Membre M2 = new Membre("John",2010);
+        ListMembres.add(M2);
+        Membre M3 = new Membre("Alexander",2015);
+        ListMembres.add(M3);
+        Membre M4 = new Membre("Aaron",2009);
+        ListMembres.add(M4);
+
+        //Filtrage de membres
+        filtrer(ListMembres, membre -> membre.getNom().startsWith("A"));
+        afficher(ListMembres);
+        var test =filtrer(ListMembres,membre -> membre.getNom().startsWith("A"));
+        afficher(test);
+    }
+    // Méthode générique de filtrage
+    public static <T> List<T> filtrer(List<T> liste, Predicate   <T> critere ) {
+
+        List<T> resultats = new ArrayList<>();
+        for( T t : liste ) {
+            if( critere.test(t) ) {
+                resultats.add(t);
+            }
+        }
+        return resultats;
+    }
+    { // comparateur livre
+    public static Comparator<Livre> comparateurLivre=Comparator
+            .comparing(Livre::getDescription)
+            .thenComparing(Livre::getTitre)
+    //comparateur media
+        public static Comparator<Media> comparateurMedia=Comparator
+                .comparing(Media::getanneePublication,Comparator.reverseOrder())
+                .thenComparing(Media::getTitre)
+}
