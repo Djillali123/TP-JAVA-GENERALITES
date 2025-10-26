@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+
+public abstract class Media { //
+    private String title;
+    private int anneePublication;
+
+    private ArrayList<Media> mediasEmpruntes;
+
+    public Media () {}
+
+    public Media(String title, int anneePublication) {
+        this.title = title;
+        this.anneePublication = anneePublication;
+        this.mediasEmpruntes = new ArrayList<>();
+    }
+
+    public String getTitre(){
+        return title;
+    }    //
+    public int getanneePublication(){
+        return anneePublication;
+    } //
+    public abstract  String getDescription(); //
+
+    @Override
+    public String toString(){
+        return title + " (" + anneePublication+")";
+    }
+}
